@@ -112,6 +112,7 @@ h1 {
     align-items: center;
     gap: 1rem;
 }
+
 .captions {
     flex: 1;
     overflow: hidden;
@@ -130,7 +131,7 @@ h1 {
     padding: 0.75rem 0.25rem;
     color: #1f2937;
     font-weight: 500;
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -220,11 +221,12 @@ h1 {
 /*===========adaptiv_500px===================*/
 @media (max-width: 550px) {
     .info-panel {
-    gap: 0rem;
-}
-.caption {
-    font-size: 0.9rem;
-}
+        gap: 0rem;
+    }
+
+    .caption {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 500px) {
@@ -236,6 +238,7 @@ h1 {
 
     .controls {
         order: 1;
+        justify-content: center;
         margin-bottom: 0;
     }
 
@@ -254,9 +257,9 @@ h1 {
         margin-bottom: 1rem;
     }
 
-    .slider {
-        margin-bottom: 1rem;
-    }
+     .slider {
+        margin-bottom: 0.8rem;
+     }
 
     .control {
         width: 2.2rem;
