@@ -269,3 +269,40 @@ h1 {
         padding: 0.5rem 0.25rem;
     }
 }
+
+/*==================text=================*/
+.slide-description {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: center;
+    
+    /* Убираем любые отступы в скрытом состоянии */
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+}
+
+/* При наведении на слайд показываем описание */
+.slide:hover .slide-description {
+    max-height: 10rem;    /* достаточно для текста */
+    opacity: 1;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+}
+
+/* Дополнительно: плавное изменение для картинки (опционально) */
+.slide img {
+    transition: transform 0.2s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.01);
+}
