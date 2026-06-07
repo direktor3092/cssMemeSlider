@@ -10,10 +10,14 @@ html {
 }
 
 body {
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    background-color: #fff;
-    color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    background-color: #000;
 }
 
 ul,
@@ -41,21 +45,26 @@ select {
 }
 
 h1 {
-    font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
     font-weight: 600;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #a66f3e;
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 /*=======================slider==================*/
 .slider-container {
     max-width: 80rem;
     width: 90%;
-    margin: 0 auto;
+    margin: 0;
     background: white;
     border-radius: 1.5rem;
     padding: 1.5rem;
     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    background-image: url(./images/background_img.jpg);
 }
 
 .slider-radio {
@@ -70,47 +79,133 @@ h1 {
 .slider-viewport {
     overflow: hidden;
     border-radius: 1rem;
-    background: #e5e7eb;
+    background: #848074;
 }
 
 .slider-track {
     display: flex;
-    width: 400%;
+    width: 500%;
     transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 .slide {
-    width: 25%;
+    width: 20%;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slide img {
-    width: 100%;
+    width: auto;
+    max-width: 90%;
+    max-height: 70vh;
     height: auto;
     display: block;
-    object-fit: cover;
-    aspect-ratio: 600 / 400;
+    object-fit: contain;
 }
 
 /*========captions===============*/
 .captions {
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 2rem;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2rem;
 }
 
 .captions-track {
-  display: flex;
-  width: 400%;
-  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    display: flex;
+    width: 500%;
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 .caption {
-  width: 25%;
-  font-size: 1.1rem;
-  line-height: 1.4;
-  padding: 0.75rem 0.25rem;
-  color: #1f2937;
-  font-weight: 500;
-  text-align: center;
+    width: 20%;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    padding: 0.75rem 0.25rem;
+    color: #1f2937;
+    font-weight: 500;
+    text-align: center;
+    
+}
+
+/*==================controls==================*/
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.control {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background: #5a5a5a;;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.6rem;
+    background-clip: content-box;
+    border: 0.2rem solid transparent;
+}
+
+.control:hover {
+    background:  #a1a0a0;
+    transform: scale(1.1);
+}
+
+.control:active {
+    transform: scale(0.95);
+    background: #daa520;;
+}
+
+#slide1:checked~.controls .control[for="slide1"],
+#slide2:checked~.controls .control[for="slide2"],
+#slide3:checked~.controls .control[for="slide3"],
+#slide4:checked~.controls .control[for="slide4"],
+#slide5:checked~.controls .control[for="slide5"] {
+    background: #5a5a5a;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.3);
+}
+
+#slide1:checked~.slider .slider-track {
+    transform: translateX(0%);
+}
+
+#slide2:checked~.slider .slider-track {
+    transform: translateX(-20%);
+}
+
+#slide3:checked~.slider .slider-track {
+    transform: translateX(-40%);
+}
+
+#slide4:checked~.slider .slider-track {
+    transform: translateX(-60%);
+}
+
+#slide5:checked~.slider .slider-track {
+    transform: translateX(-80%);
+}
+
+#slide1:checked~.captions .captions-track {
+    transform: translateX(0%);
+}
+
+#slide2:checked~.captions .captions-track {
+    transform: translateX(-20%);
+}
+
+#slide3:checked~.captions .captions-track {
+    transform: translateX(-40%);
+}
+
+#slide4:checked~.captions .captions-track {
+    transform: translateX(-60%);
+}
+
+#slide5:checked~.captions .captions-track {
+    transform: translateX(-80%);
 }
